@@ -15,16 +15,18 @@
           minlength="3"
           maxlength="20"
         />
-        <mat-error *ngIf="signupForm.controls['Username'].hasError('required')">
+        <mat-error
+          *ngIf="signupForm.controls['Username']?.hasError('required')"
+        >
           Username is required
         </mat-error>
         <mat-error
-          *ngIf="signupForm.controls['Username'].hasError('minlength')"
+          *ngIf="signupForm.controls['Username']?.hasError('minlength')"
         >
           Username must be at least 3 characters
         </mat-error>
         <mat-error
-          *ngIf="signupForm.controls['Username'].hasError('maxlength')"
+          *ngIf="signupForm.controls['Username']?.hasError('maxlength')"
         >
           Username cannot exceed 20 characters
         </mat-error>
@@ -39,11 +41,13 @@
           required
           minlength="6"
         />
-        <mat-error *ngIf="signupForm.controls['Password'].hasError('required')">
+        <mat-error
+          *ngIf="signupForm.controls['Password']?.hasError('required')"
+        >
           Password is required
         </mat-error>
         <mat-error
-          *ngIf="signupForm.controls['Password'].hasError('minlength')"
+          *ngIf="signupForm.controls['Password']?.hasError('minlength')"
         >
           Password must be at least 6 characters
         </mat-error>
@@ -57,10 +61,10 @@
           name="Email"
           required
         />
-        <mat-error *ngIf="signupForm.controls['Email'].hasError('required')">
+        <mat-error *ngIf="signupForm.controls['Email']?.hasError('required')">
           Email is required
         </mat-error>
-        <mat-error *ngIf="signupForm.controls['Email'].hasError('email')">
+        <mat-error *ngIf="signupForm.controls['Email']?.hasError('email')">
           Please enter a valid email address
         </mat-error>
       </mat-form-field>
@@ -80,6 +84,7 @@
       mat-raised-button
       [disabled]="!signupForm.valid"
       color="primary"
+      (click)="registerUser()"
       type="submit"
     >
       Sign Up

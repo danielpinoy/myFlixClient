@@ -8,7 +8,7 @@ import {
 import { Observable, throwError } from 'rxjs';
 import { map } from 'rxjs/operators';
 
-const apiUrl = 'YOUR_HOSTED_API_URL_HERE/';
+const apiUrl = 'https://history-movie-api.onrender.com/';
 @Injectable({
   providedIn: 'root',
 })
@@ -16,6 +16,12 @@ export class FetchApiDataService {
   // Inject the HttpClient module to the constructor params
   // This will provide HttpClient to the entire class, making it available via this.http
   constructor(private http: HttpClient) {}
+
+  private extractResponseData(res: Object): any {
+    const body = res;
+    return body || {};
+  }
+
   // Making the api call for the user registration endpoint
   public postUserRegistration(userDetails: any): Observable<any> {
     console.log(userDetails);
@@ -32,8 +38,15 @@ export class FetchApiDataService {
       .post(apiUrl + 'users/login', userDetails)
       .pipe(catchError(this.handleError));
   }
-  public getAllMovies(): Observable<any> {
-    return this.http.get(apiUrl + 'movies').pipe(catchError(this.handleError));
+  getAllMovies(): Observable<any> {
+    const token = localStorage.getItem('token');
+    return this.http
+      .get(apiUrl + 'movies', {
+        headers: new HttpHeaders({
+          Authorization: 'Bearer ' + token,
+        }),
+      })
+      .pipe(map(this.extractResponseData), catchError(this.handleError));
   }
 
   public getMovie(movieID: number): Observable<any> {
