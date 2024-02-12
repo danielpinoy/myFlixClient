@@ -4,3 +4,14 @@ mat-card-title {
 mat-form-field {
   width: 280px; /* Set the desired width */
 }
+.loading-container {
+  position: fixed;
+  top: 80%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  font-size: 24px; /* Adjust the font size as needed */
+}
+
+.loading-text {
+  font-size: 24px; /* Adjust the font size as needed */
+}

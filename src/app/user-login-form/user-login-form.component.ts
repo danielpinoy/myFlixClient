@@ -1,19 +1,17 @@
 import { Component, OnInit, Input } from '@angular/core';
-
 import { MatDialogRef } from '@angular/material/dialog';
 import { FetchApiDataService } from '../fetch-api-data.service';
 import { MatSnackBar } from '@angular/material/snack-bar';
 import { Router } from '@angular/router';
 
-//         this.router.navigate(['movies']);
-
 @Component({
   selector: 'app-user-login-form',
   templateUrl: './user-login-form.component.html',
-  styleUrl: './user-login-form.component.scss',
+  styleUrls: ['./user-login-form.component.scss', '../app.component.scss'],
 })
 export class UserLoginFormComponent implements OnInit {
   @Input() userData = { Username: '', Password: '' };
+  loading: boolean = false;
 
   constructor(
     public fetchApiData: FetchApiDataService,
@@ -21,25 +19,32 @@ export class UserLoginFormComponent implements OnInit {
     public snackBar: MatSnackBar,
     private router: Router
   ) {}
-  ngOnInit(): void {}
+  ngOnInit(): void {
+    console.log(this.loading);
+  }
 
   loginUser(): void {
+    this.loading = true;
+
     this.fetchApiData.postUserLogin(this.userData).subscribe(
       (result) => {
         this.dialogRef.close();
-        this.snackBar.open(result, 'OK', {
+        this.snackBar.open('Successful', 'OK', {
           duration: 2000,
         });
-
         // LocalStorage
-        localStorage.setItem('userData', JSON.stringify(result.userData));
+        localStorage.setItem('userData', JSON.stringify(result.user));
         localStorage.setItem('token', result.token);
         this.router.navigate(['movies']);
       },
-      (result) => {
-        this.snackBar.open(result, 'OK', {
+      (error) => {
+        this.loading = false;
+        this.snackBar.open(error, 'OK', {
           duration: 2000,
         });
+      },
+      () => {
+        this.loading = false;
       }
     );
   }

@@ -1,1 +1,12 @@
+<div class="toolbar-container">
+  <mat-toolbar color="primary" *ngIf="hiddenNavbar()">
+    <h2>Historic Movies</h2>
+    <div>
+      <a routerLink="/profile">Profile</a>
+      <a routerLink="/movies">Movies</a>
+      <a class="logout-link" (click)="logout()">Logout</a>
+    </div>
+  </mat-toolbar>
+</div>
+
 <router-outlet></router-outlet>

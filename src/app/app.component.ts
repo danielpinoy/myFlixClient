@@ -2,7 +2,7 @@ import { Component } from '@angular/core';
 import { MatDialog } from '@angular/material/dialog';
 import { UserRegistrationFormComponent } from './user-registration-form/user-registration-form.component';
 import { UserLoginFormComponent } from './user-login-form/user-login-form.component';
-import { MovieCardComponent } from './movie-card/movie-card.component';
+import { Router } from '@angular/router';
 @Component({
   selector: 'app-root',
   templateUrl: './app.component.html',
@@ -11,7 +11,7 @@ import { MovieCardComponent } from './movie-card/movie-card.component';
 export class AppComponent {
   title = 'myFlix-Angular-client';
 
-  constructor(public dialog: MatDialog) {}
+  constructor(public dialog: MatDialog, private router: Router) {}
   // This is the function that will open the dialog when the signup button
   // is clicked
   openUserRegistrationDialog(): void {
@@ -25,9 +25,14 @@ export class AppComponent {
       width: '330px',
     });
   }
-  openMoviesDialog(): void {
-    this.dialog.open(MovieCardComponent, {
-      width: '330px',
-    });
+  logout(): void {
+    localStorage.removeItem('userData');
+    localStorage.removeItem('token');
+    this.router.navigate(['/']);
+  }
+  hiddenNavbar(): boolean {
+    return (
+      !!localStorage.getItem('userData') && !!localStorage.getItem('token')
+    );
   }
 }

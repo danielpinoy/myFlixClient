@@ -1,4 +1,8 @@
-<mat-card>
+<div *ngIf="loading" class="loading-container">
+  <div class="spinner"></div>
+</div>
+
+<mat-card *ngIf="!loading">
   <mat-card-header>
     <mat-card-title>Login</mat-card-title>
   </mat-card-header>
