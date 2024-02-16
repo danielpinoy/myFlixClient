@@ -24,7 +24,7 @@ jobs:
         run: npm run build -- --configuration production --base-href=/myFlixClient/
 
       - name: Deploy to GitHub Pages
-        uses: JamesIves/github-pages-deploy-action@4.1.4
+        uses: peaceiris/github-pages-deploy-action@4
         with:
           ACCESS_TOKEN: ${{ secrets.ACCESS_TOKEN }}
           BRANCH: gh-pages
