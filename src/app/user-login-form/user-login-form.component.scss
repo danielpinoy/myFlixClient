@@ -2,16 +2,12 @@ mat-card-title {
   margin-bottom: 10px;
 }
 mat-form-field {
-  width: 280px; /* Set the desired width */
+  width: 280px;
 }
 .loading-container {
   position: fixed;
   top: 80%;
   left: 50%;
   transform: translate(-50%, -50%);
-  font-size: 24px; /* Adjust the font size as needed */
-}
-
-.loading-text {
-  font-size: 24px; /* Adjust the font size as needed */
+  font-size: 24px;
 }
