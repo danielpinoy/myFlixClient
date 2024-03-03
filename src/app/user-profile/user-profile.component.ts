@@ -8,7 +8,14 @@ import { MatSnackBar } from '@angular/material/snack-bar';
   templateUrl: './user-profile.component.html',
   styleUrls: ['./user-profile.component.scss', '../app.component.scss'],
 })
+
+/**
+ * Component for displaying user profile information.
+ */
 export class UserProfileComponent {
+  /**
+   * User profile data.
+   */
   user: {
     _id: number;
     Username: string;
@@ -22,13 +29,10 @@ export class UserProfileComponent {
     Birthday: '',
     FavoriteMovies: [],
   };
+  /**
+   * Array of movies.
+   */
   movies: any[] = [];
-  selectedMovieIndex: number | null = null;
-  isFavorite: boolean = false;
-  hiddenImage: boolean = false;
-  showGenre: boolean = false;
-  showDirector: boolean = false;
-  showDescription: boolean = false;
 
   constructor(
     private router: Router,
@@ -36,6 +40,11 @@ export class UserProfileComponent {
     public snackBar: MatSnackBar
   ) {}
 
+  /**
+   * Lifecycle hook called after component initialization.
+   * Retrieves user data and movies from local storage.
+   * Logs user data to the console.
+   */
   ngOnInit(): void {
     const storedUserData = localStorage.getItem('userData');
     const storedMovies = localStorage.getItem('movies');
@@ -47,10 +56,17 @@ export class UserProfileComponent {
       this.movies = JSON.parse(storedMovies);
     }
   }
+  /**
+   * Navigates back to the movie card view.
+   */
   backMovieCard(): void {
     this.router.navigate(['/movies']);
   }
 
+  /**
+   * Retrieves favorite movies titles from the user's favorite movies array.
+   * @returns An array of favorite movies titles.
+   */
   getFavoriteMovies(): any[] {
     const favoriteMoviesTitle = [];
     if (this.user && this.user.FavoriteMovies && this.movies) {
@@ -65,6 +81,11 @@ export class UserProfileComponent {
     }
     return favoriteMoviesTitle;
   }
+
+  /**
+   * Removes the user account.
+   * @param userID The ID of the user to remove.
+   */
   removeUser(userID: number): void {
     this.deleteAccount.deleteUser(userID).subscribe({
       next: (response) => {

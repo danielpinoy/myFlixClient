@@ -5,6 +5,8 @@
     "baseUrl": "src",
     "outDir": "docs/dist/out-tsc",
     "forceConsistentCasingInFileNames": true,
+    "allowJs": true,
+    "checkJs": true,
     "strict": true,
     "noImplicitOverride": true,
     "noPropertyAccessFromIndexSignature": true,

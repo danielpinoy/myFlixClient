@@ -9,8 +9,16 @@ import { Router } from '@angular/router';
   templateUrl: './user-login-form.component.html',
   styleUrls: ['./user-login-form.component.scss', '../app.component.scss'],
 })
+
+/**
+ * Logs in the user using the provided user data.
+ * @returns void
+ * @remarks This method sends a request to the API to log in the user with the provided credentials.
+ * It handles success by closing the login dialog, displaying a success message, storing user data and token in localStorage, and navigating to the movies page.
+ * It handles errors by displaying an error message and resetting the loading state.
+ */
 export class UserLoginFormComponent implements OnInit {
-  @Input() userData = { Username: '', Password: '' };
+  userData = { Username: '', Password: '' };
   loading: boolean = false;
 
   constructor(
@@ -19,9 +27,7 @@ export class UserLoginFormComponent implements OnInit {
     public snackBar: MatSnackBar,
     private router: Router
   ) {}
-  ngOnInit(): void {
-    console.log(this.loading);
-  }
+  ngOnInit(): void {}
 
   loginUser(): void {
     this.loading = true;

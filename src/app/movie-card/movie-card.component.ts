@@ -3,6 +3,9 @@ import { Component } from '@angular/core';
 import { FetchApiDataService } from '../fetch-api-data.service';
 import { MatSnackBar } from '@angular/material/snack-bar';
 
+/**
+ * Represents a movie.
+ */
 interface Movie {
   Genre: {
     Name: string;
@@ -24,6 +27,10 @@ interface Movie {
   templateUrl: './movie-card.component.html',
   styleUrls: ['./movie-card.component.scss'],
 })
+
+/**
+ * This is the Movie Card component.
+ */
 export class MovieCardComponent {
   movies: any[] = [];
   selectedMovieIndex: number | null = null;
@@ -43,6 +50,11 @@ export class MovieCardComponent {
     this.getMovies();
   }
 
+  /**
+   * Fetches the movie from the API
+   * @returns void
+   * @remarks This method sends requests to the server to fetch all movie
+   */
   getMovies(): void {
     this.fetchMovies.getAllMovies().subscribe((resp: any) => {
       const storedUserData = localStorage.getItem('userData');
@@ -73,9 +85,16 @@ export class MovieCardComponent {
     });
   }
 
+  /**
+   * Toggles a movie in the user's favorite movie list on the server.
+   * @param movieID The ID of the movie to toggle.
+   * @param movie The movie object to toggle.
+   * @returns void
+   * @remarks This method sends requests to the server to add or remove the movie from the user's favorites.
+   */
   toggleFavorite(movieID: any, movie: any): void {
     const userDataString = localStorage.getItem('userData');
-    console.log(movieID);
+    // console.log(movieID);
     if (userDataString) {
       const userData = JSON.parse(userDataString);
 
@@ -141,6 +160,11 @@ export class MovieCardComponent {
     }
   }
 
+  /**
+   * Toggles the visibility of genre information for the selected movie.
+   * @param index - The index of the movie in the movies array.
+   * @returns void
+   */
   toggleGenre(index: number): void {
     const selectedMovie = this.movies[index];
 
@@ -187,7 +211,13 @@ export class MovieCardComponent {
     this.resetOtherMovies(selectedMovie);
   }
 
-  // resets by default look unselected movie cards
+  /**
+   * Resets unselected movie cards to their default state.
+   * @param selectedMovie The selected movie whose state should not be reset.
+   * @returns void
+   * @remarks This method is used to reset the state of unselected movie cards,
+   * such as hiding descriptions, directors, and genres, and showing images.
+   */
   private resetOtherMovies(selectedMovie: any): void {
     this.movies.forEach((movie) => {
       if (movie !== selectedMovie) {
