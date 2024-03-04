@@ -43,18 +43,21 @@ TypeScript
 HTML/CSS
 RESTful APIs
 
-### External APIs
-
-#### Movie Database API
+## Movie Database API
 
 - **Documentation**: [MovieDB API Documentation](https://65e55d59772bb72285e96109--glittery-truffle-357fb1.netlify.app/fetch-api-data.service.js)
 - **Endpoints**: `/login`, `/register`, `/movies`, `user/addfavorite`, etc.
 
-### Demo
+## Demo
 
-### Screenshots
+## Screenshots
+
+### Login Screenshot
 
 ![Screenshot 1](/preview-img/ScreenShot-Login.png)
+
+### Movie-View Screenshot
+
 ![Screenshot 2](/preview-img/Screenshot-Main_Movie_Preview.png)
 
 [Live Demo](https://my-flix-client-37ln36u1h-danielpinoys-projects.vercel.app/myFlixClient/welcome)
