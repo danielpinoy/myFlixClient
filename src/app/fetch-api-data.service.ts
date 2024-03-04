@@ -28,7 +28,7 @@ export class FetchApiDataService {
 
   /**
    * POST - Registers a new user.
-   * @param {Object} userDetails - The details of the user to register.
+   * @param {any} userDetails - The details of the user to register.
    * @param {string} userDetails.Username - The username of the user.
    * @param {string} userDetails.Email - The email of the user.
    * @param {string} userDetails.Password - The password of the user.

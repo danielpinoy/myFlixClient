@@ -3,10 +3,10 @@
   "recurseDepth": 10,
   "opts": {
     "recurse": true,
-    "destination": "./docs/"
+    "destination": "./out/"
   },
   "source": {
-    "include": ["src/app/fetch-api-data.service.ts"],
+    "include": ["src/app/fetch-api-data.service.js"],
     "includePattern": ".+\\.ts$",
     "excludePattern": "node_modules"
   },

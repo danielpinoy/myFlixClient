@@ -1,0 +1,160 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <title>JSDoc: Source: fetch-api-data.service.js</title>
+
+    <script src="scripts/prettify/prettify.js"></script>
+    <script src="scripts/prettify/lang-css.js"></script>
+    <!--[if lt IE 9]>
+      <script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+    <![endif]-->
+    <link
+      type="text/css"
+      rel="stylesheet"
+      href="styles/prettify-tomorrow.css"
+    />
+    <link type="text/css" rel="stylesheet" href="styles/jsdoc-default.css" />
+  </head>
+
+  <body>
+    <div id="main">
+      <h1 class="page-title">FetchApiDataService Documentation</h1>
+      <h2>Service for handling user registration operations.</h2>
+      <p>
+        This service provides methods for registering users, user login,
+        retrieving movies, adding movies to favorites, deleting favorite movies,
+        and deleting user accounts.
+      </p>
+
+      <h2>postUserRegistration(userDetails)</h2>
+      <p>Registers a new user.</p>
+      <ul>
+        <li><code>userDetails</code> - The details of the user to register.</li>
+        <li><code>userDetails.Username</code> - The username of the user.</li>
+        <li><code>userDetails.Email</code> - The email of the user.</li>
+        <li><code>userDetails.Password</code> - The password of the user.</li>
+        <li><code>userDetails.Birthday</code> - the birthday of the user.</li>
+      </ul>
+      <p>
+        Returns an observable that emits the HTTP response data upon success or
+        an error object if the request fails.
+      </p>
+      <p>Example:</p>
+      <pre><code>userService.postUserRegistration(userDetails).subscribe(
+			(response) => console.log('Registration successful:', response),
+			(error) => console.error('Registration failed:', error)
+		);</code></pre>
+      <p>
+        <strong>ENDPOINT:</strong>
+        <a href="https://history-movie-api.onrender.com/register"
+          >https://history-movie-api.onrender.com/register</a
+        >
+      </p>
+
+      <h2>postUserLogin(userDetails)</h2>
+      <p>Logs in a user.</p>
+      <ul>
+        <li><code>userDetails</code> - The details of the user to login.</li>
+        <li><code>userDetails.Username</code> - The username of the user.</li>
+        <li><code>userDetails.Password</code> - The password of the user.</li>
+      </ul>
+      <p>
+        Returns an observable that emits the HTTP response data upon success or
+        an error object if the request fails.
+      </p>
+      <p>
+        <strong>ENDPOINT:</strong>
+        <a href="https://history-movie-api.onrender.com/login"
+          >https://history-movie-api.onrender.com/login</a
+        >
+      </p>
+
+      <h2>getAllMovies()</h2>
+      <p>Retrieves a list of Movies from the API.</p>
+      <p>
+        Returns an observable that emits the HTTP response data upon success or
+        an error object if the request fails.
+      </p>
+      <p>
+        <strong>ENDPOINT:</strong>
+        <a href="https://history-movie-api.onrender.com/movies"
+          >https://history-movie-api.onrender.com/movies</a
+        >
+      </p>
+
+      <h2>postMovieToFavorite(userID, favoriteMovieID)</h2>
+      <p>Favorites selected movie to your user account.</p>
+      <ul>
+        <li>
+          <code>userID</code> - the user id used to find where to post the
+          favorite movie.
+        </li>
+        <li>
+          <code>favoriteMovieID</code> - the favorite movie id to insert into
+          the userDetails.
+        </li>
+      </ul>
+      <p>
+        Returns an observable that emits the HTTP response data upon success or
+        an error object if the request fails.
+      </p>
+
+      <h2>deleteFavoriteMovie(userID, movieID)</h2>
+      <p>Deletes favorite movie from user's profile.</p>
+      <ul>
+        <li><code>userID</code> - the user id.</li>
+        <li><code>movieID</code> - the movie id of the favorite movie.</li>
+      </ul>
+      <p>
+        Returns an observable that emits the HTTP response data upon success or
+        an error object if the request fails.
+      </p>
+      <p>
+        <strong>ENDPOINT:</strong>
+        <a href="https://history-movie-api.onrender.com/user/1235123/431345633"
+          >https://history-movie-api.onrender.com/user/1235123/431345633</a
+        >
+      </p>
+
+      <h2>deleteUser(userID)</h2>
+      <p>Delete user permanently.</p>
+      <ul>
+        <li><code>userID</code> - The user's ID for deletion.</li>
+      </ul>
+      <p>
+        Returns an observable that emits the HTTP response data upon success or
+        an error object if the request fails.
+      </p>
+      <p>
+        <strong>ENDPOINT:</strong>
+        <a href="https://history-movie-api.onrender.com/user/12354123"
+          >https://history-movie-api.onrender.com/user/12354123</a
+        >
+      </p>
+    </div>
+
+    <nav>
+      <h2><a href="index.html">Home</a></h2>
+      <h3>Global</h3>
+      <ul>
+        <li>
+          <a href="global.html#FetchApiDataService">FetchApiDataService</a>
+        </li>
+      </ul>
+    </nav>
+
+    <br class="clear" />
+
+    <footer>
+      Documentation generated by
+      <a href="https://github.com/jsdoc/jsdoc">JSDoc 4.0.2</a> on Sun Mar 03
+      2024 17:12:36 GMT+0800 (Philippine Standard Time)
+    </footer>
+
+    <script>
+      prettyPrint();
+    </script>
+    <script src="scripts/linenumber.js"></script>
+  </body>
+</html>
