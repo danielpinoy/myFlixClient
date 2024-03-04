@@ -54,8 +54,8 @@ RESTful APIs
 
 ### Screenshots
 
-![Screenshot 1](preview-img/ScreenShot_Login.png)
-![Screenshot 2](preview-img/Screenshot_Main_Movie_Preview.png)
+![Screenshot 1](/preview-img/ScreenShot-Login.png)
+![Screenshot 2](/preview-img/Screenshot-Main_Movie_Preview.png)
 
 [Live Demo](https://my-flix-client-37ln36u1h-danielpinoys-projects.vercel.app/myFlixClient/welcome)
 
