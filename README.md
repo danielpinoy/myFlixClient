@@ -43,4 +43,20 @@ TypeScript
 HTML/CSS
 RESTful APIs
 
-During the project, we used user stories and a Kanban board to manage our tasks and track progress. User stories helped us prioritize features and identify the most critical functionality for each iteration. The Kanban board provided a visual representation of our workflow, allowing us to visualize work in progress, identify bottlenecks, and ensure a smooth development process. We regularly updated and reviewed these materials during team meetings to ensure alignment and make adjustments as needed.
+### External APIs
+
+#### Movie Database API
+
+- **Documentation**: [MovieDB API Documentation](https://65e55d59772bb72285e96109--glittery-truffle-357fb1.netlify.app/fetch-api-data.service.js)
+- **Endpoints**: `/login`, `/register`, `/movies`, `user/addfavorite`, etc.
+
+### Demo
+
+![Screenshot 1](/preview-img/ScreenShot Login.png)
+![Screenshot 2](/preview-img/Screenshot- Main Movie Preview.png)
+
+[Live Demo](https://my-flix-client-37ln36u1h-danielpinoys-projects.vercel.app/myFlixClient/welcome)
+
+### Contact
+
+For any inquiries or feedback, please contact [Daniel John](mailto:almirante.danieljohn@gmail.com).
