@@ -1,6 +1,6 @@
 # HISTORY-MOVIE APPLICATION
 
-## Project Description:
+## Project Description
 
 My role in this project was as a frontend developer. I was responsible for building a history movie catalog with login and registration functionality. Key tasks I faced included:
 
