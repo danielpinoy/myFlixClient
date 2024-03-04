@@ -9,10 +9,6 @@ Integrating with backend APIs to fetch movie data.
 Implementing user profile management features, such as user deletion and favorite movie lists.
 Throughout the project, I made several decisions regarding the choice of Angular libraries, architectural patterns, and UI/UX design. For example, I chose to use Angular Material for UI components to ensure a consistent and modern look and feel across the application. This decision helped streamline development and improve usability for end users.
 
-## Angular App
-
-A simple Angular application for demonstration purposes.
-
 ## Installation
 
 1. Install Node.js and npm if you haven't already.
@@ -23,25 +19,21 @@ A simple Angular application for demonstration purposes.
 
 Download all the dependencies
 
-```bash
-npm install
-```
-
 Run the app locally
 
 ```bash
 ng start
 ```
 
-Technologies Used:
+### Technologies Used:
 
-Angular
-Angular Material
-Angular Router
-RxJS
-TypeScript
-HTML/CSS
-RESTful APIs
+- Angular
+- Angular Material
+- Angular Router
+- RxJS
+- TypeScript
+- HTML/CSS
+- RESTful APIs
 
 ## Movie Database API
 
