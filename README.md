@@ -2,11 +2,9 @@
 
 ## Project Description
 
-My role in this project was as a frontend developer. I was responsible for building a history movie catalog with login and registration functionality. Key tasks I faced included:
-
-Designing and implementing the user interface using Angular components, templates, and services.
-Integrating with backend APIs to fetch movie data.
+Designing and implementing the user interface using Angular components, templates, and services. Integrating with backend APIs to fetch movie data.
 Implementing user profile management features, such as user deletion and favorite movie lists.
+
 Throughout the project, I made several decisions regarding the choice of Angular libraries, architectural patterns, and UI/UX design. For example, I chose to use Angular Material for UI components to ensure a consistent and modern look and feel across the application. This decision helped streamline development and improve usability for end users.
 
 ## Installation
@@ -42,6 +40,8 @@ ng start
 
 ## Demo
 
+[Live Demo](https://danielpinoy.github.io/meet/)
+
 ## Screenshots
 
 ### Login Screenshot
@@ -51,8 +51,6 @@ ng start
 ### Movie-View Screenshot
 
 ![Screenshot 2](/preview-img/Screenshot-Main_Movie_Preview.png)
-
-[Live Demo](https://my-flix-client-37ln36u1h-danielpinoys-projects.vercel.app/myFlixClient/welcome)
 
 ### Contact
 
