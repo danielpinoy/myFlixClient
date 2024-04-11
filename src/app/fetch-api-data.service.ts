@@ -8,7 +8,7 @@ import {
 import { Observable, throwError } from 'rxjs';
 import { map } from 'rxjs/operators';
 
-const apiUrl = 'https://history-movie-api.onrender.com/';
+const apiUrl = 'https://historymovieapi-production.up.railway.app/';
 
 /**
  * Service for handling user registration operations.
