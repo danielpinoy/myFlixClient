@@ -7,21 +7,25 @@ import { MatSnackBar } from '@angular/material/snack-bar';
  * Represents a movie.
  */
 interface Movie {
-  Genre: {
-    Name: string;
-    Description: string;
-  };
-  Director: {
-    Name: string;
-    Bio: string;
-  };
   _id: string;
-  Title: string;
-  Description: string;
   Actors: string[];
+  Awards: string[];
+  Description: string;
+  Director: string;
+  Featured: boolean;
+  Genre: string[];
   Image: string;
+  Rating: string;
+  ReleaseDate: string;
+  Runtime: string;
+  Title: string;
+  Writer: string[];
+  hiddenImage: boolean;
+  isFavorite: boolean;
+  showDescription: boolean;
+  showDirector: boolean;
+  showGenre: boolean;
 }
-
 @Component({
   selector: 'app-movie-card',
   templateUrl: './movie-card.component.html',
@@ -70,6 +74,7 @@ export class MovieCardComponent {
           showDescription: false,
           isFavorite: favoriteMovieIds.includes(movie._id),
         }));
+        console.log(this.movies);
         localStorage.setItem('movies', JSON.stringify(this.movies));
       } else {
         this.movies = resp.map((movie: Movie) => ({
@@ -97,6 +102,7 @@ export class MovieCardComponent {
     // console.log(movieID);
     if (userDataString) {
       const userData = JSON.parse(userDataString);
+      console.log(movie);
 
       if (movie.isFavorite) {
         // If the movie is already a favorite, remove it
@@ -173,11 +179,8 @@ export class MovieCardComponent {
     selectedMovie.showDirector = false;
     selectedMovie.showDescription = false;
     // Show genre information and hide image
-    selectedMovie.hiddenImage = true;
+    selectedMovie.hiddenImage = selectedMovie.showGenre;
 
-    if (!selectedMovie.showGenre) {
-      selectedMovie.hiddenImage = false;
-    }
     // Hide the genre of other movies and reset their hiddenImage property
     this.resetOtherMovies(selectedMovie);
   }
@@ -189,11 +192,8 @@ export class MovieCardComponent {
     selectedMovie.showGenre = false;
     selectedMovie.showDescription = false;
 
-    selectedMovie.hiddenImage = true;
+    selectedMovie.hiddenImage = selectedMovie.showDirector;
 
-    if (!selectedMovie.showDirector) {
-      selectedMovie.hiddenImage = false;
-    }
     this.resetOtherMovies(selectedMovie);
   }
   toggleDescription(index: number): void {

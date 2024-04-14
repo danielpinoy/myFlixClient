@@ -3,9 +3,7 @@
     <mat-card *ngFor="let movie of movies; let i = index">
       <mat-card-header>
         <mat-card-title>{{ movie.Title }}</mat-card-title>
-        <mat-card-subtitle
-          >Directed by: {{ movie.Director.Name }}</mat-card-subtitle
-        >
+        <mat-card-subtitle>Directed by: {{ movie.Director }}</mat-card-subtitle>
       </mat-card-header>
       <div class="image-card">
         <img
@@ -13,12 +11,19 @@
           [src]="movie.Image"
           [alt]="movie.Title"
         />
-        <div class="genre" *ngIf="movie.showGenre">{{ movie.Genre.Name }}</div>
+        <div class="genre" *ngIf="movie.showGenre">
+          <h3>Genre:</h3>
+          <p>{{ movie.Genre.join(", ") }}</p>
+        </div>
         <div class="director" *ngIf="movie.showDirector">
-          {{ movie.Director.Bio }}
+          <h3>Actors:</h3>
+          <div class="actor">
+            <p *ngFor="let actor of movie.Actors">{{ actor }}</p>
+          </div>
         </div>
         <div class="description" *ngIf="movie.showDescription">
-          {{ movie.Description }}
+          <h3>Description:</h3>
+          <p>{{ movie.Description }}</p>
         </div>
       </div>
       <mat-card-actions>
@@ -26,7 +31,7 @@
           Genre
         </button>
         <button mat-button color="primary" (click)="toggleDirector(i)">
-          Director
+          Actor
         </button>
         <button mat-button color="primary" (click)="toggleDescription(i)">
           Synopsis
