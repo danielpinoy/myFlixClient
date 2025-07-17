@@ -12,25 +12,25 @@
         <mat-label>Username</mat-label>
         <input
           matInput
-          [(ngModel)]="userData.Username"
+          [(ngModel)]="userData.username"
           type="text"
-          name="Username"
+          name="username"
           required
           minlength="3"
           maxlength="20"
         />
         <mat-error
-          *ngIf="signupForm.controls['Username']?.hasError('required')"
+          *ngIf="signupForm.controls['username']?.hasError('required')"
         >
           Username is required
         </mat-error>
         <mat-error
-          *ngIf="signupForm.controls['Username']?.hasError('minlength')"
+          *ngIf="signupForm.controls['username']?.hasError('minlength')"
         >
           Username must be at least 3 characters
         </mat-error>
         <mat-error
-          *ngIf="signupForm.controls['Username']?.hasError('maxlength')"
+          *ngIf="signupForm.controls['username']?.hasError('maxlength')"
         >
           Username cannot exceed 20 characters
         </mat-error>
@@ -39,19 +39,19 @@
         <mat-label>Password</mat-label>
         <input
           matInput
-          [(ngModel)]="userData.Password"
+          [(ngModel)]="userData.password"
           type="password"
-          name="Password"
+          name="password"
           required
           minlength="6"
         />
         <mat-error
-          *ngIf="signupForm.controls['Password']?.hasError('required')"
+          *ngIf="signupForm.controls['password']?.hasError('required')"
         >
           Password is required
         </mat-error>
         <mat-error
-          *ngIf="signupForm.controls['Password']?.hasError('minlength')"
+          *ngIf="signupForm.controls['password']?.hasError('minlength')"
         >
           Password must be at least 6 characters
         </mat-error>
@@ -60,15 +60,15 @@
         <mat-label>Email</mat-label>
         <input
           matInput
-          [(ngModel)]="userData.Email"
+          [(ngModel)]="userData.email"
           type="email"
-          name="Email"
+          name="email"
           required
         />
-        <mat-error *ngIf="signupForm.controls['Email']?.hasError('required')">
+        <mat-error *ngIf="signupForm.controls['email']?.hasError('required')">
           Email is required
         </mat-error>
-        <mat-error *ngIf="signupForm.controls['Email']?.hasError('email')">
+        <mat-error *ngIf="signupForm.controls['email']?.hasError('email')">
           Please enter a valid email address
         </mat-error>
       </mat-form-field>
@@ -76,9 +76,9 @@
         <mat-label>Date</mat-label>
         <input
           matInput
-          [(ngModel)]="userData.Birthday"
+          [(ngModel)]="userData.birthday"
           type="date"
-          name="Birthday"
+          name="birthday"
         />
       </mat-form-field>
     </form>

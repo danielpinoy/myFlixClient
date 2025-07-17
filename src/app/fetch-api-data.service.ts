@@ -8,7 +8,7 @@ import {
 import { Observable, throwError } from 'rxjs';
 import { map } from 'rxjs/operators';
 
-const apiUrl = 'https://historymovieapi-production.up.railway.app/';
+const apiUrl = 'http://94.130.107.9/';
 
 /**
  * Service for handling user registration operations.
@@ -92,7 +92,7 @@ export class FetchApiDataService {
   public getAllMovies(): Observable<any> {
     const token = localStorage.getItem('token');
     return this.http
-      .get(apiUrl + 'movies', {
+      .get(apiUrl + 'Movies', {
         headers: new HttpHeaders({
           Authorization: 'Bearer ' + token,
         }),
@@ -185,13 +185,35 @@ export class FetchApiDataService {
    * @private
    */
   private handleError(error: HttpErrorResponse): any {
+    let errorMessage = 'Something bad happened; please try again later.';
+
     if (error.error instanceof ErrorEvent) {
-      console.error('Some error occurred:', error.error.message);
+      // Client-side error
+      console.error('Client-side error occurred:', error.error.message);
+      errorMessage = error.error.message;
     } else {
+      // Server-side error
       console.error(
-        `Error Status code ${error.status}, ` + `Error body is: ${error.error}`
+        `Error Status code ${error.status}, ` + `Error body is:`,
+        error.error
       );
+
+      // Extract the message from the server response
+      if (
+        error.error &&
+        typeof error.error === 'object' &&
+        error.error.message
+      ) {
+        errorMessage = error.error.message;
+      } else if (error.status === 401) {
+        errorMessage = 'Invalid username or password. Please try again.';
+      } else if (error.status === 500) {
+        errorMessage = 'Server error. Please try again later.';
+      } else if (error.status === 0) {
+        errorMessage = 'Network error. Please check your connection.';
+      }
     }
-    return throwError('Something bad happened; please try again later.');
+
+    return throwError(errorMessage);
   }
 }

@@ -2,28 +2,28 @@
   <div class="movie-grid">
     <mat-card *ngFor="let movie of movies; let i = index">
       <mat-card-header>
-        <mat-card-title>{{ movie.Title }}</mat-card-title>
-        <mat-card-subtitle>Directed by: {{ movie.Director }}</mat-card-subtitle>
+        <mat-card-title>{{ movie.title }}</mat-card-title>
+        <mat-card-subtitle>Directed by: {{ movie.director }}</mat-card-subtitle>
       </mat-card-header>
       <div class="image-card">
         <img
           *ngIf="!movie.hiddenImage"
-          [src]="movie.Image"
-          [alt]="movie.Title"
+          [src]="movie.image"
+          [alt]="movie.title"
         />
         <div class="genre" *ngIf="movie.showGenre">
           <h3>Genre:</h3>
-          <p>{{ movie.Genre.join(", ") }}</p>
+          <p>{{ movie.genre.join(", ") }}</p>
         </div>
         <div class="director" *ngIf="movie.showDirector">
           <h3>Actors:</h3>
           <div class="actor">
-            <p *ngFor="let actor of movie.Actors">{{ actor }}</p>
+            <p *ngFor="let actor of movie.actors">{{ actor }}</p>
           </div>
         </div>
         <div class="description" *ngIf="movie.showDescription">
           <h3>Description:</h3>
-          <p>{{ movie.Description }}</p>
+          <p>{{ movie.description }}</p>
         </div>
       </div>
       <mat-card-actions>

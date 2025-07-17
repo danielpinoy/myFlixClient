@@ -18,16 +18,16 @@ export class UserProfileComponent {
    */
   user: {
     _id: number;
-    Username: string;
-    Email: any;
-    Birthday: any;
-    FavoriteMovies: [];
+    username: string;
+    email: any;
+    birthday: any;
+    favoriteMovies: [];
   } = {
     _id: 0,
-    Username: '',
-    Email: '',
-    Birthday: '',
-    FavoriteMovies: [],
+    username: '',
+    email: '',
+    birthday: '',
+    favoriteMovies: [],
   };
   /**
    * Array of movies.
@@ -69,8 +69,8 @@ export class UserProfileComponent {
    */
   getFavoriteMovies(): any[] {
     const favoriteMoviesTitle = [];
-    if (this.user && this.user.FavoriteMovies && this.movies) {
-      for (const favoriteMovieId of this.user.FavoriteMovies) {
+    if (this.user && this.user.favoriteMovies && this.movies) {
+      for (const favoriteMovieId of this.user.favoriteMovies) {
         const matchedMovie = this.movies.find(
           (movie) => movie._id === favoriteMovieId
         );

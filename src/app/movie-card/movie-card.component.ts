@@ -8,18 +8,31 @@ import { MatSnackBar } from '@angular/material/snack-bar';
  */
 interface Movie {
   _id: string;
-  Actors: string[];
-  Awards: string[];
-  Description: string;
-  Director: string;
-  Featured: boolean;
-  Genre: string[];
-  Image: string;
-  Rating: string;
-  ReleaseDate: string;
-  Runtime: string;
-  Title: string;
-  Writer: string[];
+  actors: string[];
+  description: string;
+  director: string;
+  featured: boolean;
+  genre: string[];
+  image: string;
+  rating: number;
+  releaseDate: string;
+  runtime: number;
+  title: string;
+  writer: string[];
+  budget?: number;
+  revenue?: number;
+  popularity?: number;
+  tmdbId?: number;
+  imdbId?: string;
+  voteCount?: number;
+  images?: {
+    thumbnail: string;
+    poster: string;
+    backdrop: string;
+    original: string;
+  };
+  createdAt?: string;
+  updatedAt?: string;
   hiddenImage: boolean;
   isFavorite: boolean;
   showDescription: boolean;
@@ -64,7 +77,7 @@ export class MovieCardComponent {
       const storedUserData = localStorage.getItem('userData');
       if (storedUserData) {
         const userData = JSON.parse(storedUserData);
-        const favoriteMovieIds = userData.FavoriteMovies || []; // Use empty array if FavoriteMovies is undefined or null
+        const favoriteMovieIds = userData.favoriteMovies || []; // Use empty array if FavoriteMovies is undefined or null
 
         this.movies = resp.map((movie: Movie) => ({
           ...movie,
