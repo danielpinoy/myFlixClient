@@ -40,7 +40,7 @@ ng start
 
 ## Demo
 
-[Live Demo](https://my-flix-client-37ln36u1h-danielpinoys-projects.vercel.app/myFlixClient/welcome)
+[Live Demo](https://my-flix-client-ashen.vercel.app/myFlixClient/welcome)
 
 ## Screenshots
 

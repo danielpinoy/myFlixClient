@@ -8,7 +8,8 @@ import {
 import { Observable, throwError } from 'rxjs';
 import { map } from 'rxjs/operators';
 
-const apiUrl = 'http://94.130.107.9/';
+const apiUrl =
+  'https://xo4xjqevs42mbp46utxi3dua3y0lwywt.lambda-url.eu-north-1.on.aws/';
 
 /**
  * Service for handling user registration operations.
